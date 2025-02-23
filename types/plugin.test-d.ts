@@ -32,7 +32,7 @@ export const pluginCallbackDefaults: FastifyPluginCallback = async (
   const pluginCallbackValibotDefaults: FastifyPluginCallbackValibot = async (
     fastifyWithValibot,
     optionsValibot,
-    doneTypebox
+    doneValibot
   ) => {
     expectType<(typeof fastifyWithValibot)['server']>(fastify.server)
     expectType<typeof optionsValibot>(options)
