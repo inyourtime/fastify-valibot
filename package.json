@@ -11,13 +11,14 @@
     }
   },
   "scripts": {
-    "test:watch": "vitest --watch",
-    "test": "vitest --coverage",
-    "test:update": "vitest --update",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
     "build": "tsup",
-    "build:clean": "rimraf ./dist"
+    "build:clean": "rimraf ./dist",
+    "test:watch": "vitest --watch",
+    "test:unit": "vitest --coverage",
+    "test:types": "tsd",
+    "test": "npm run build && npm run test:unit && npm run test:types",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
   "author": "",
@@ -28,11 +29,12 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.1.1",
-    "@fastify/swagger": "^9.4.2",
+    "@fastify/swagger": "^8.15.0",
     "@types/node": "^22.13.4",
     "@vitest/coverage-v8": "^3.0.5",
     "eslint": "^9.20.1",
-    "fastify": "^5.2.1",
+    "fastify": "^4.29.0",
+    "fastify-plugin": "^5.0.1",
     "neostandard": "^0.12.1",
     "rimraf": "^6.0.1",
     "tsd": "^0.31.2",
@@ -43,5 +45,8 @@
   "dependencies": {
     "@fastify/error": "^4.0.0",
     "@valibot/to-json-schema": "^1.0.0-rc.0"
+  },
+  "tsd": {
+    "directory": "types"
   }
 }

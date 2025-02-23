@@ -41,8 +41,11 @@ describe('serializerCompiler', () => {
           schema: {
             response: {
               200: {
-                a: v.string(),
-                b: v.number(),
+                type: 'object',
+                properties: {
+                  a: { type: 'string' },
+                  b: { type: 'number' },
+                }
               },
             },
           },

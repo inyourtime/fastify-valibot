@@ -17,5 +17,5 @@
     "outDir": "dist",
     "declaration": true
   },
-  "exclude": ["node_modules/", "types/**/*.test-d.ts", "tests", "dist"]
+  "exclude": ["./node_modules", "types/**/*.test-d.ts", "test", "dist"]
 }

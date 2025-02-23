@@ -20,12 +20,18 @@ import {
 
 type ValibotBaseSchema = BaseSchema<unknown, unknown, BaseIssue<unknown>>
 
+// export interface ValibotTypeProvider extends FastifyTypeProvider {
+//   validator: this['schema'] extends ValibotBaseSchema
+//     ? InferOutput<this['schema']>
+//     : unknown;
+//   serializer: this['schema'] extends ValibotBaseSchema
+//     ? InferOutput<this['schema']>
+//     : unknown;
+// }
+
 export interface ValibotTypeProvider extends FastifyTypeProvider {
-  validator: this['schema'] extends ValibotBaseSchema
-    ? InferOutput<this['schema']>
-    : unknown;
-  serializer: this['schema'] extends ValibotBaseSchema
-    ? InferOutput<this['schema']>
+  output: this['input'] extends ValibotBaseSchema
+    ? InferOutput<this['input']>
     : unknown;
 }
 
@@ -124,8 +130,6 @@ function resolveSchema (schema: unknown): ValibotBaseSchema {
 
 export const serializerCompiler: FastifySerializerCompiler<unknown> = ({
   schema: unknownSchema,
-  method,
-  url,
 }) => {
   return (data) => {
     const schema = resolveSchema(unknownSchema)
