@@ -2,9 +2,9 @@ import createError from '@fastify/error'
 import { FastifyError } from 'fastify'
 import { BaseIssue, IssuePathItem } from 'valibot'
 
-type ValiBaseIssue = BaseIssue<unknown>
-type ValiIssues = [BaseIssue<unknown>, ...BaseIssue<unknown>[]]
-type ValiPath = [IssuePathItem, ...IssuePathItem[]]
+export type ValiBaseIssue = BaseIssue<unknown>
+export type ValiIssues = [BaseIssue<unknown>, ...BaseIssue<unknown>[]]
+export type ValiPath = [IssuePathItem, ...IssuePathItem[]]
 
 const ValibotFastifyIssueSymbol = Symbol.for('ValibotFastifyIssue')
 
