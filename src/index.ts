@@ -29,6 +29,16 @@ type ValibotBaseSchema = BaseSchema<unknown, unknown, BaseIssue<unknown>>
 //     : unknown;
 // }
 
+/**
+ * Enables automatic type inference on a Fastify instance.
+ *
+ * @example
+ * ```ts
+ * import Fastify from 'fastify'
+ *
+ * const server = Fastify().withTypeProvider<ValibotTypeProvider>()
+ * ```
+ */
 export interface ValibotTypeProvider extends FastifyTypeProvider {
   output: this['input'] extends ValibotBaseSchema
     ? InferOutput<this['input']>
@@ -86,7 +96,7 @@ export const createJsonSchemaTransform = () => {
 
 export const jsonSchemaTransform = createJsonSchemaTransform()
 
-interface ValidatorOptions {
+export interface ValidatorOptions {
   parseConfig?: Config<BaseIssue<unknown>>;
 }
 
