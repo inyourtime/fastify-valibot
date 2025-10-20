@@ -39,7 +39,7 @@
     "valibot": "^1.0.0-rc.0"
   },
   "devDependencies": {
-    "@apidevtools/swagger-parser": "^10.1.1",
+    "@apidevtools/swagger-parser": "^12.1.0",
     "@fastify/swagger": "^8.15.0",
     "@types/node": "^22.13.4",
     "@vitest/coverage-v8": "^3.0.5",
